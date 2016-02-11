@@ -1,6 +1,5 @@
 /*!
- * @todo Add Select all, Deselect all actions
- * @todo More robust API with options
+ * Turn multiple <select> form control into user friendly checklist.
  */
 (function (factory) {
     if (typeof define === 'function' && define.amd) {

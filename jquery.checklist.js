@@ -15,9 +15,9 @@
 }(function ($) {
     $.fn.checklist = function () {
         // Create a wrapper
-        var wrapperId = $(this).wrapAll('<div>').parent().uniqueId().attr('id');
+        var wrapperId = this.wrapAll('<div>').parent().uniqueId().attr('id');
         // Hide this element
-        $(this).hide();
+        this.hide();
         // Deal with settings
         // @todo More robust API with options
         /*
@@ -41,15 +41,15 @@
             }
         }).get();
         // Replace the original option with Vue implementation
-        $(this).attr('v-model', 'selectList');
-        $(this).attr('v-on:change', 'onSelectChanged');
-        $(this).html(
+        this.attr('v-model', 'selectList');
+        this.attr('v-on:change', 'onSelectChanged');
+        this.html(
             '<option v-for="option in optionList" :value="option.value">' +
                 '{{ option.text }}' +
             '</option>'
         );
         // Show the checklist
-        $(this).parent().prepend(
+        this.parent().prepend(
             '<div class="ui relaxed list">' +
                 '<div class="item" v-for="option in optionList">' +
                     '<div class="ui checkbox">' +
